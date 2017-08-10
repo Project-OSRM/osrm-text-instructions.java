@@ -139,6 +139,7 @@ public class TextInstructions {
         currentLaneValidity = lane.getValid();
       }
     }
+
     return config.toString();
   }
 

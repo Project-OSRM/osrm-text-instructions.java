@@ -1,12 +1,15 @@
 apply plugin: 'java-library'
 
-dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-
-  compile rootProject.ext.dep.mapboxServices
-}
-
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
+
+dependencies {
+  compile rootProject.ext.dep.mapboxServices
+
+  // Testing
+  testCompile rootProject.ext.dep.junit
+  testCompile rootProject.ext.dep.hamcrest
+  testCompile rootProject.ext.dep.mockito
+}
 
 apply from: '../checkstyle.gradle'
