@@ -3,6 +3,8 @@ package org.project_osrm.instructions;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,18 +14,8 @@ import static org.junit.Assert.assertEquals;
 public class BaseTest {
   public static final double DELTA = 1E-10;
 
-  public void compareJson(String json1, String json2) {
-    JsonParser parser = new JsonParser();
-    assertEquals(parser.parse(json1), parser.parse(json2));
-  }
-
   protected String loadJsonFixture(String filename) throws IOException {
-    byte[] content = Files.readAllBytes(Paths.get(filename));
-    return new String(content, Charset.forName("utf-8"));
-  }
-
-  protected String loadJsonFixture(String folder, String filename) throws IOException {
-    byte[] content = Files.readAllBytes(Paths.get("src/test/fixtures/" + folder + "/" + filename));
-    return new String(content, Charset.forName("utf-8"));
+    InputStream stream = getClass().getClassLoader().getResourceAsStream(filename);
+    return new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject().toString();
   }
 }
