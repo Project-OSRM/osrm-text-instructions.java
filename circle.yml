@@ -22,7 +22,7 @@ jobs:
           command: cd osrm-text-instructions && ./gradlew checkstyle
       - run:
           name: Run Tests
-          command: cd osrm-text-instructions && ./gradlew lint test
+          command: cd osrm-text-instructions && ./gradlew :libjava-osrm-instructions:test
       - store_artifacts:
           path: osrm-text-instructions/app/build/reports
           destination: reports
