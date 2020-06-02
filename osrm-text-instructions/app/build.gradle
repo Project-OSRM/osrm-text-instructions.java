@@ -27,10 +27,6 @@ dependencies {
   // Logging
   compile rootProject.ext.dep.timber
 
-  // Butter Knife
-  compile rootProject.ext.dep.butterKnife
-  annotationProcessor rootProject.ext.dep.butterKnifeProcessor
-
   // Leak Canary
   debugCompile rootProject.ext.dep.leakCanaryDebug
   releaseCompile rootProject.ext.dep.leakCanaryRelease
