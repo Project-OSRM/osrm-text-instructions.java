@@ -21,20 +21,22 @@ android {
 
 dependencies {
   // Support libraries
-  compile rootProject.ext.dep.supportAppcompatV7
-  compile rootProject.ext.dep.supportConstraintLayout
+  implementation rootProject.ext.dep.supportAppcompatV7
+  implementation rootProject.ext.dep.supportConstraintLayout
 
   // Logging
-  compile rootProject.ext.dep.timber
+  implementation rootProject.ext.dep.timber
 
   // Leak Canary
-  debugCompile rootProject.ext.dep.leakCanaryDebug
-  releaseCompile rootProject.ext.dep.leakCanaryRelease
-  testCompile rootProject.ext.dep.leakCanaryTest
+  debugImplementation rootProject.ext.dep.leakCanaryDebug
+  releaseImplementation rootProject.ext.dep.leakCanaryRelease
+  testImplementation rootProject.ext.dep.leakCanaryTest
 
   // Unit Testing
-  testCompile rootProject.ext.dep.junit
-  testCompile rootProject.ext.dep.mockito
+  testImplementation rootProject.ext.dep.junit
+  testImplementation rootProject.ext.dep.mockito
+  implementation 'androidx.vectordrawable:vectordrawable:1.2.0-alpha01'
+  implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0'
 
   // Instrumentation testing
   androidTestCompile(rootProject.ext.dep.testEspressoCore, {
